@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+    back:
+        image: gxara/deliveries-gateway-api:latest
+        env_file:
+            - .env
+        ports:
+            - "3000:3000"
+        networks:
+            network:
+                aliases:
+                    - back
+    web:
+        build: .
+        networks:
+            network:
+                aliases:
+                    - web
+    nginx:
+        build: ./nginx
+        ports:
+            - "8000:80"
+        depends_on:
+            - web
+            - back
+        networks:
+            network:
+                aliases:
+                    - nginx
+networks:
+    network:
+        driver: bridge
+
+volumes:
+    react:
