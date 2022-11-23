@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import LandingPage from "../LandingPage";
 import OrdersPage from "../Orders";
+import ShippingPage from "../ShippingPage";
 
 const router = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     {
         path: "/orders",
         element: <OrdersPage />,
+    },
+    {
+        path: "/shipping",
+        element: <ShippingPage />,
     },
 ]);
 

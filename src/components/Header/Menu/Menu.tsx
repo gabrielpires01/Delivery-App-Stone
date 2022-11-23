@@ -10,9 +10,11 @@ const Menu = (): JSX.Element => {
             <button className={styles.dropbtn}>
                 <AiOutlineMenu />
             </button>
-            <div className={classNames(styles["dropdown-content"])}>
+            <nav className={classNames(styles["dropdown-content"])}>
+                <a href="/">Home</a>
                 <a href="/orders">Orders</a>
-            </div>
+                <a href="/shipping">Shipping</a>
+            </nav>
         </div>
     );
 };
