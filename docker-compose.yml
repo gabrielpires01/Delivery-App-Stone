@@ -24,6 +24,7 @@ services:
         depends_on:
             - web
             - back
+        container_name: stone-front-nginx
         networks:
             network:
                 aliases:

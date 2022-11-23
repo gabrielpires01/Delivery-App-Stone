@@ -26,9 +26,13 @@ if ! command -v docker && docker-compose &> /dev/null
 fi
 
 
-if [ ! "$(docker ps -q -f name=stone-front_nginx)" ]
+if [ ! "$(docker images -q stone-front_nginx)" ]
     then
+        printf "${BLUE}Building docker enviroment\n"
         command docker-compose up --build -d
-    else 
+    else
+        printf "${BLUE}Starting docker enviroment\n"
         command docker-compose up
 fi
+
+printf "${GREEN}Access your application on http://localhost:8000\n"
