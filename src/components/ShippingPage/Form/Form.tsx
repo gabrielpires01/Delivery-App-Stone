@@ -14,9 +14,12 @@ export interface FormValue {
     scheduleDate: string;
 }
 
-const Form = () => {
-    const { mutate } = useShippingForm();
+interface Props {
+    postShipping: (value: FormValue) => void;
+    setIsOpen: (value: boolean) => void;
+}
 
+const Form = ({ postShipping, setIsOpen }: Props) => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
@@ -31,72 +34,80 @@ const Form = () => {
             scheduleDate: e.target.scheduleDate.value,
         };
 
-        mutate(form);
-
-        e.target.reset();
+        postShipping(form);
+        setIsOpen(false);
     };
 
     return (
-        <form className={styles.container} onSubmit={(e) => handleSubmit(e)}>
-            <label className={styles.label}>
-                <span>Origin zipcode:</span>
-                <input
-                    required
-                    type="text"
-                    name="originZipCode"
-                    className={styles.input}
-                />
-            </label>
-            <label className={styles.label}>
-                <span>Destination zipcode:</span>
-                <input
-                    required
-                    type="text"
-                    name="destinationZipCode"
-                    className={styles.input}
-                />
-            </label>
-            <div className={styles.dimensions}>
+        <>
+            <h1>
+                Fill this form bellow so we can informe you the options for
+                shipping:
+            </h1>
+            <form
+                className={styles.container}
+                onSubmit={(e) => handleSubmit(e)}
+            >
+                <label className={styles.label}>
+                    <span>Origin zipcode:</span>
+                    <input
+                        required
+                        type="text"
+                        name="originZipCode"
+                        className={styles.input}
+                    />
+                </label>
+                <label className={styles.label}>
+                    <span>Destination zipcode:</span>
+                    <input
+                        required
+                        type="text"
+                        name="destinationZipCode"
+                        className={styles.input}
+                    />
+                </label>
                 <span>Package dimensions:</span>
+                <div className={styles.dimensions}>
+                    <label className={styles.label}>
+                        <span>Height:</span>
+                        <input
+                            required
+                            type="number"
+                            name="height"
+                            className={styles.input}
+                        />
+                    </label>
+                    <label className={styles.label}>
+                        <span>Length:</span>
+                        <input
+                            required
+                            type="number"
+                            name="length"
+                            className={styles.input}
+                        />
+                    </label>
+                    <label className={styles.label}>
+                        <span>Width:</span>
+                        <input
+                            required
+                            type="number"
+                            name="width"
+                            className={styles.input}
+                        />
+                    </label>
+                </div>
                 <label className={styles.label}>
-                    <span>Height:</span>
+                    <span>To date:</span>
                     <input
                         required
-                        type="number"
-                        name="height"
+                        type="date"
+                        name="scheduleDate"
                         className={styles.input}
                     />
                 </label>
-                <label className={styles.label}>
-                    <span>length:</span>
-                    <input
-                        required
-                        type="number"
-                        name="length"
-                        className={styles.input}
-                    />
-                </label>
-                <label className={styles.label}>
-                    <span>Width:</span>
-                    <input
-                        required
-                        type="number"
-                        name="width"
-                        className={styles.input}
-                    />
-                </label>
-            </div>
-            <label className={styles.label}>
-                <span>To date:</span>
-                <input
-                    required
-                    type="date"
-                    name="scheduleDate"
-                    className={styles.input}
-                />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+                <input type="submit" value="Submit" />
+            </form>
+        </>
     );
 };
 

@@ -1,21 +1,25 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { FormValue } from "../components/ShippingPage/Form/Form";
+import { ShippingResponse } from "../components/ShippingPage/interfaces/ShippingResponse";
 import endpoints from "./endpoints";
 
-const postShippingForm = async (form: FormValue) => {
+const postShippingForm = async (form: FormValue): Promise<ShippingResponse> => {
     const res = await fetch(endpoints.shippingForm, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
     });
 
-    return res;
+    if (!res.ok) throw new Error("Algo deu errado");
+
+    const data = await res.json();
+    return data;
 };
 
 function useShippingForm() {
-    const { mutate } = useMutation(postShippingForm);
+    const { mutate, data } = useMutation(postShippingForm);
 
-    return { mutate };
+    return { mutate, data };
 }
 
 export default useShippingForm;

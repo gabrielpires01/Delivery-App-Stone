@@ -1,7 +1,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 200px;
+    max-width: 400px;
+    padding: 5px;
 }
 
 .label {
@@ -21,5 +22,7 @@
 }
 
 .dimensions {
+    display: flex;
+    flex-wrap: wrap;
     padding: 10px;
 }

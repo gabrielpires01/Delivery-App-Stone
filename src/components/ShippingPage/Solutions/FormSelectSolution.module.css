@@ -1,0 +1,12 @@
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 5px;
+}
