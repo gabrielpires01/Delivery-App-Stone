@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useShippingForm from "../../api/useShippingForm";
 
-import Form from "./Form/Form";
+import Form from "./ShippingForm/ShippingForm";
 
 import styles from "./index.module.css";
 import Solutions from "./Solutions/Solutions";

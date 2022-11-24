@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { FormValue } from "../components/ShippingPage/Form/Form";
+import { FormValue } from "../components/ShippingPage/ShippingForm/ShippingForm";
 import { ShippingResponse } from "../components/ShippingPage/interfaces/ShippingResponse";
 import endpoints from "./endpoints";
 
