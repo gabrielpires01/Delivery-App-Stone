@@ -67,7 +67,7 @@ const Form = ({ postShipping, setIsOpen }: Props) => {
                     <Label label="Width (cm)" type="number" name="width" />
                 </div>
                 <Label label="To date" type="date" name="scheduleDate" />
-                <SubmitButton name="Procurar" />
+                <SubmitButton name="Search" />
             </form>
         </>
     );

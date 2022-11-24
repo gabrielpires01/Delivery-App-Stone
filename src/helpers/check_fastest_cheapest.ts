@@ -1,6 +1,11 @@
 import { Solution } from "../components/ShippingPage/interfaces/ShippingResponse";
 
-const checkFastestCheapest = (data: Solution[]) => {
+export interface FastestCheapest extends Solution {
+    cheapest: boolean;
+    fastest: boolean;
+}
+
+const checkFastestCheapest = (data: Solution[]): FastestCheapest[] => {
     const cheapest = data.reduce(function (prev, current) {
         return prev.price < current.price ? prev : current;
     });
@@ -9,7 +14,7 @@ const checkFastestCheapest = (data: Solution[]) => {
         return prev.deliveryTime < current.deliveryTime ? prev : current;
     });
 
-    const newSolutions = [
+    const newSolutions: FastestCheapest[] = [
         { ...cheapest, cheapest: true, fastest: false },
         { ...fastest, fastest: true, cheapest: false },
     ];

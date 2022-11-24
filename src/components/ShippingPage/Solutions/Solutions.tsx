@@ -1,27 +1,21 @@
 import React from "react";
-import checkFastestCheapest from "../../../helpers/check_fastest_cheapest";
+import { DataProps } from "..";
 
-import { ShippingResponse, Solution } from "../interfaces/ShippingResponse";
+import { ShippingResponse } from "../interfaces/ShippingResponse";
 import FormSelectSolution from "./FormSelectSolution";
-import OptionContainer from "./Option";
 
 import styles from "./Solutions.module.css";
 
 interface Props {
     data: ShippingResponse;
+    setOrder: (value: DataProps) => void;
 }
 
-const Solutions = ({ data }: Props) => {
-    const solutions = checkFastestCheapest(data.solutions);
-
-    const shippingSolutions = solutions.map((option, index) => (
-        <OptionContainer option={option} key={`option=${index}`} />
-    ));
-
+const Solutions = ({ data, setOrder }: Props) => {
     return (
         <div className={styles.container}>
             <div>Options:</div>
-            <FormSelectSolution>{shippingSolutions}</FormSelectSolution>
+            <FormSelectSolution data={data} setOrder={setOrder} />
         </div>
     );
 };

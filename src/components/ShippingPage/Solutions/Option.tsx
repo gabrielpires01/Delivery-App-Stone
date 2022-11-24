@@ -1,45 +1,27 @@
 import React from "react";
-import { AiFillThunderbolt } from "react-icons/ai";
-import { MdOutlineAttachMoney } from "react-icons/md";
 
-import { Solution } from "../interfaces/ShippingResponse";
+import { FastestCheapest } from "../../../helpers/check_fastest_cheapest";
+import OptionContainer from "./OptionContainer";
 
 import styles from "./Option.module.css";
 
 interface Props {
-    option: Solution;
+    option: FastestCheapest;
 }
 
-function OptionContainer({ option }: Props) {
+function Option({ option }: Props) {
     return (
         <div className={styles.container}>
             <input
                 type="radio"
                 id={`operator-${option.logisticOperator}`}
                 name="solution"
+                required
+                value={option.logisticOperator}
             />
-            <div>
-                {option.fastest ? (
-                    option.cheapest ? (
-                        <>
-                            <AiFillThunderbolt />
-                            <MdOutlineAttachMoney />
-                        </>
-                    ) : (
-                        <AiFillThunderbolt />
-                    )
-                ) : option.cheapest ? (
-                    <MdOutlineAttachMoney />
-                ) : null}
-            </div>
-            <div>
-                Delivery date:{" "}
-                {option.deliveryTime.toLocaleString().split("T")[0]}
-            </div>
-            <div>R$ {option.price}</div>
-            <div>Logistic Operator {option.logisticOperator}</div>
+            <OptionContainer option={option} />
         </div>
     );
 }
 
-export default OptionContainer;
+export default Option;
