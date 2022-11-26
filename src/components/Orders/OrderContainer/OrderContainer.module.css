@@ -1,0 +1,12 @@
+.container {
+    border: 1px solid black;
+    display: flex;
+    background-color: white;
+    padding: 5px;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.container span {
+    margin: 5px;
+}

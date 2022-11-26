@@ -6,8 +6,6 @@ import Page from "./components";
 import Loader from "./components/Loader";
 import queryClient from "./react-query/query_client";
 
-import "./index.module.css";
-
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 root.render(

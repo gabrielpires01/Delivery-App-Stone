@@ -1,5 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+import queryKeys from "../react-query/query_keys";
 import endpoints from "./endpoints";
 
 export interface OrderProps {
@@ -42,7 +43,13 @@ const postOrder = async (order: OrderProps): Promise<ResponseFormatOrder[]> => {
 };
 
 function usePostOrder() {
-    const { mutate, data } = useMutation(postOrder);
+    const queryClient = useQueryClient();
+
+    const { mutate, data } = useMutation(postOrder, {
+        onSuccess: () => {
+            queryClient.invalidateQueries([queryKeys.orders]);
+        },
+    });
 
     return { mutate, data };
 }
