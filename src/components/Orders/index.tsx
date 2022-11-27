@@ -12,7 +12,7 @@ function OrdersPage() {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Your orders</h1>
-            {orders.length ? (
+            {orders?.length ? (
                 <Container orders={orders} />
             ) : (
                 <div className={styles["no-data"]}>

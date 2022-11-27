@@ -26,7 +26,9 @@ const getOrder = async (): Promise<OrderResponse[]> => {
 };
 
 function useGetOrders() {
-    const { data = [] } = useQuery([queryKeys.orders], getOrder);
+    const { data } = useQuery([queryKeys.orders], getOrder, {
+        refetchOnMount: "always",
+    });
 
     return data;
 }
