@@ -3,3 +3,9 @@
     height: inherit;
     width: fit-content;
 }
+
+@media screen and (max-width: 700px) {
+    .logo {
+        display: none;
+    }
+}

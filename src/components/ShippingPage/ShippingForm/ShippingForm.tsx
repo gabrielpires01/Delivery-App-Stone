@@ -21,7 +21,7 @@ interface Props {
     setIsOpen: (value: boolean) => void;
 }
 
-const Form = ({ postShipping, setIsOpen }: Props) => {
+const ShippingForm = ({ postShipping, setIsOpen }: Props) => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
@@ -42,7 +42,7 @@ const Form = ({ postShipping, setIsOpen }: Props) => {
 
     return (
         <>
-            <h1>
+            <h1 className={styles.title}>
                 Fill this form bellow so we can informe you the options for
                 shipping:
             </h1>
@@ -73,4 +73,4 @@ const Form = ({ postShipping, setIsOpen }: Props) => {
     );
 };
 
-export default Form;
+export default ShippingForm;

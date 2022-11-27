@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import useShippingForm from "../../api/useShippingForm";
 import Solutions from "./Solutions/Solutions";
 import Order from "./Order/Order";
-import Form from "./ShippingForm/ShippingForm";
+import ShippingForm from "./ShippingForm/ShippingForm";
 
 import styles from "./index.module.css";
 
@@ -35,7 +35,7 @@ function ShippingPage() {
             {!order.id ? (
                 <>
                     {isOpen ? (
-                        <Form
+                        <ShippingForm
                             postShipping={postShipping}
                             setIsOpen={setIsOpen}
                         />

@@ -18,3 +18,8 @@
     padding: 10px;
     align-items: center;
 }
+
+.title {
+    text-align: center;
+    margin: auto 5px;
+}

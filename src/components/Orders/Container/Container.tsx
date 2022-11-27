@@ -13,7 +13,7 @@ const Container = ({ orders }: Props) => {
     return (
         <div className={styles.container}>
             {orders.map((order) => (
-                <OrderContainer order={order} />
+                <OrderContainer order={order} key={order.id} />
             ))}
         </div>
     );

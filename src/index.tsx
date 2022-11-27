@@ -8,6 +8,7 @@ import queryClient from "./react-query/query_client";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
+
 root.render(
     <QueryClientProvider client={queryClient}>
         <Suspense fallback={<Loader />}>
