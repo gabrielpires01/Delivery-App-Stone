@@ -13,6 +13,8 @@ services:
                     - back
     web:
         build: .
+        volumes:
+            - react:/var/www/html
         networks:
             network:
                 aliases:
@@ -20,7 +22,9 @@ services:
     nginx:
         build: ./nginx
         ports:
-            - "8000:80"
+            - "80:80"
+        volumes:
+            - react:/var/www/html
         depends_on:
             - web
             - back

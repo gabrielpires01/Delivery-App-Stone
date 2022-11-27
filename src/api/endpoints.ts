@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost/api";
 
 const endpoints = {
     shippingForm: `${BASE_URL}/deliveries/quotes`,
