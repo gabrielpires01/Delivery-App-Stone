@@ -13,8 +13,8 @@ export interface Customer {
     phone: string;
 }
 
-const getOrder = async (): Promise<OrderResponse[]> => {
-    const res = await fetch(endpoints.order, {
+const getOrders = async (): Promise<OrderResponse[]> => {
+    const res = await fetch(endpoints.orders, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
     });
@@ -26,7 +26,7 @@ const getOrder = async (): Promise<OrderResponse[]> => {
 };
 
 function useGetOrders() {
-    const { data } = useQuery([queryKeys.orders], getOrder, {
+    const { data } = useQuery([queryKeys.orders], getOrders, {
         refetchOnMount: "always",
     });
 

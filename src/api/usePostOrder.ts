@@ -30,7 +30,7 @@ const postOrder = async (order: OrderProps): Promise<ResponseFormatOrder[]> => {
         },
     };
 
-    const res = await fetch(endpoints.order, {
+    const res = await fetch(endpoints.orders, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(format),

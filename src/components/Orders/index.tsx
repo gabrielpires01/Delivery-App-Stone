@@ -5,6 +5,7 @@ import useGetOrders from "../../api/useGetOrders";
 import Container from "./Container/Container";
 
 import styles from "./index.module.css";
+import Search from "./Search/Search";
 
 function OrdersPage() {
     const orders = useGetOrders();
@@ -24,6 +25,7 @@ function OrdersPage() {
                     </Link>
                 </div>
             )}
+            <Search />
         </div>
     );
 }

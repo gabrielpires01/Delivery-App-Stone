@@ -1,0 +1,39 @@
+.container {
+    border-radius: 8px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+}
+
+.input {
+    flex-grow: 1;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 1px;
+    border: none;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 0px 0px 3px 0px rgba(173, 173, 173, 0.65);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.icon {
+    flex-grow: 1;
+    max-width: 20px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.icon:hover {
+    background-color: rgb(240, 255, 240);
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: 90%;
+    }
+}
