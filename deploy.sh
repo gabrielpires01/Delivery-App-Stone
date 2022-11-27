@@ -25,14 +25,7 @@ if ! command -v docker && docker-compose &> /dev/null
         printf "${GREEN}Docker is installed\n"
 fi
 
-
-if [ ! "$(docker images -q stone-front_nginx)" ]
-    then
-        printf "${BLUE}Building docker enviroment\n"
+printf "${BLUE}Building docker enviroment\n"
         command docker-compose up --build -d
-    else
-        printf "${BLUE}Starting docker enviroment\n"
-        command docker-compose up
-fi
 
-printf "${GREEN}Access your application on http://localhost:8000\n"
+printf "${GREEN}Access your application on http://localhost \n"
