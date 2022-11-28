@@ -2,6 +2,19 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 
+testresult=$(npm run test --silent -- --watchAll=false --json --passWithNoTests)
+
+printf "$testresult"
+
+if [[ "$testresult" != *"\"numFailedTests\":0"* ]]
+then
+    printf "${RED}Tests failed\n"
+    printf "${RED}Exiting...\n"
+    exit
+else
+    printf "${GREEN}All Tests passed\n"
+fi
+
 if ! command -v docker &> /dev/null
 then
     printf "${BLUE}Docker is not installed\n"
