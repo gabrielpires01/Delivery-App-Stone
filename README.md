@@ -54,6 +54,12 @@ Now just deploy with:
   docker-compose up --build
 ```
 
+## Running Tests
+
+```bash
+  npm run tests
+```
+
 ## Accessing
 
 Your application should be running on localhost now:

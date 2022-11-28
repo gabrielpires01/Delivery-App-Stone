@@ -2,9 +2,7 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 
-testresult=$(npm run test --silent -- --watchAll=false --json --passWithNoTests)
-
-printf "$testresult"
+testresult=$(npm run tests --silent -- --watchAll=false --json --passWithNoTests)
 
 if [[ "$testresult" != *"\"numFailedTests\":0"* ]]
 then
